@@ -4,9 +4,9 @@
 
 | Rank | Failure | Trust Tag | Frequency | Severity |
 |---|---|---|---|---|
-| 1 | Stale pricing presented as current (row 1) | #HALLUCINATION | 8/20, HIGH | P0 |
-| 2 | Refuses questions the sources answer (row 8) | #ROBUSTNESS | 2/20, LOW | P1 |
-| 3 | Off-brand, slangy tone (row 16) | #UX_TRUST | 1/20, LOW | P3 |
+| 1 | Stale pricing presented as current | #HALLUCINATION | 8/20, HIGH | P0 |
+| 2 | Refuses questions the sources answer | #ROBUSTNESS | 2/20, LOW | P1 |
+| 3 | Off-brand, slangy tone | #UX_TRUST | 1/20, LOW | P3 |
 
 ## #1 Risk · Business Impact
 
