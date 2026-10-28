@@ -17,7 +17,7 @@ This is a **template repo**. Click **Use this template → Create a new reposito
 | M2 | **Failure Taxonomy** | ☐ | `02-failure-discovery/failure-taxonomy.md` |
 | M3 | **Eval suite** (three checks and their results) | ☐ | `03-eval-suites/eval-suite.md` |
 | M3 | **Eval spec** (five parts and three team messages) | ☐ | `03-eval-suites/eval-spec.md` |
-| M4 | **Eval gate map** (severity × placement) | ☐ | `04-eval-gates/lab-1-gate-map.md` |
+| M4 | **Eval gate map** (severity × placement) | ☐ | `04-eval-gates/gate-map.md` |
 | M4 | **CI gate policy** (PR #218 replay) | ☐ | `04-eval-gates/lab-ci-gate-policy.md` |
 | M4 | **Launch strategy** (release criteria + CI policy + mitigation) | ☐ | `04-eval-gates/lab-2-launch-strategy.md` |
 | M5 | **Coverage matrix** | ☐ | `05-scale/lab-1-coverage-matrix.md` |
@@ -81,7 +81,7 @@ ai-evals/
 │   ├── eval-suite.md                 three checks and their results
 │   └── eval-spec.md                  five-part spec and three team messages
 ├── 04-eval-gates/                    ← Module 4
-│   ├── lab-1-gate-map.md             severity × pipeline-placement grid
+│   ├── gate-map.md                   severity × pipeline-placement grid
 │   ├── lab-ci-gate-policy.md         CI gate demo (PR #218 replay)
 │   └── lab-2-launch-strategy.md      release criteria + CI policy + mitigation
 ├── 05-scale/                         ← Module 5
