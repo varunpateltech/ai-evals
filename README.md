@@ -20,7 +20,7 @@ This is a **template repo**. Click **Use this template → Create a new reposito
 | M4 | **Eval gate map** (severity × placement) | ☐ | `04-eval-gates/gate-map.md` |
 | M4 | **CI gate policy** (PR #218 replay) | ☐ | `04-eval-gates/lab-ci-gate-policy.md` |
 | M4 | **Launch strategy** (release criteria + CI policy + mitigation) | ☐ | `04-eval-gates/launch-strategy.md` |
-| M5 | **Coverage matrix** | ☐ | `05-scale/lab-1-coverage-matrix.md` |
+| M5 | **Coverage matrix** | ☐ | `05-scale/coverage-matrix.md` |
 | M5 | **Eval budget** | ☐ | `05-scale/lab-2-budget-crisis.md` |
 | M6 | **Ship / Hold memo** | ☐ | `06-culture/lab-1-ship-hold-memo.md` |
 | M6 | **Final pitch deck** (generated HTML) | ☐ | `06-culture/lab-2-final-pitch.html` |
@@ -85,7 +85,7 @@ ai-evals/
 │   ├── lab-ci-gate-policy.md         CI gate demo (PR #218 replay)
 │   └── launch-strategy.md            release criteria + CI policy + mitigation
 ├── 05-scale/                         ← Module 5
-│   ├── lab-1-coverage-matrix.md      coverage across product lines
+│   ├── coverage-matrix.md            coverage across product lines
 │   └── lab-2-budget-crisis.md        eval budget + trade-offs
 └── 06-culture/                       ← Module 6
     ├── lab-1-ship-hold-memo.md       ship/hold recommendation
