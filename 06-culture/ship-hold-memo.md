@@ -10,7 +10,7 @@ I recommend we hold the Ascend IQ launch to our top 50 accounts, because stale p
 
 ### 1. Hallucination, the failure type behind our P0, is too frequent to ship: wrong facts like stale prices would reach clients regularly, not rarely.
 
-Evidence: Hallucinations, including the stale-pricing P0, appeared in 8 of 20 audited answers (HIGH frequency), against a release threshold of 100% of pricing answers passing.
+Evidence: The only pricing question in our 20-answer audit returned a stale price (0 of 1 pricing answers passed, against a 100% release bar), and hallucinations overall hit 8 of 20 audited answers (HIGH frequency).
 
 ### 2. We can reliably detect the P0 before it reaches a client, so the fix can be verified before we launch.
 
