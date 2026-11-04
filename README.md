@@ -12,21 +12,21 @@ This is a **template repo**. Click **Use this template → Create a new reposito
 
 | Module | Artifact | Status | File |
 |---|---|---|---|
-| M1 | **Evaluation Strategy Canvas** | ☐ | `01-evaluation-strategy/strategy-canvas.md` |
-| M2 | **Failure audit log** | ☐ | `02-failure-discovery/audit-log.md` |
-| M2 | **Failure Taxonomy** | ☐ | `02-failure-discovery/failure-taxonomy.md` |
-| M3 | **Eval suite** (three checks and their results) | ☐ | `03-eval-suites/eval-suite.md` |
-| M3 | **Eval spec** (five parts and three team messages) | ☐ | `03-eval-suites/eval-spec.md` |
-| M4 | **Eval gate map** (severity × placement) | ☐ | `04-eval-gates/gate-map.md` |
-| M4 | **CI gate policy** (PR #218 replay) | ☐ | `04-eval-gates/lab-ci-gate-policy.md` |
-| M4 | **Launch strategy** (release criteria + CI policy + mitigation) | ☐ | `04-eval-gates/launch-strategy.md` |
-| M5 | **Coverage matrix** | ☐ | `05-scale/coverage-matrix.md` |
-| M5 | **Eval budget** | ☐ | `05-scale/eval-budget.md` |
-| M6 | **Ship-or-hold memo** | ☐ | `06-culture/ship-hold-memo.md` |
+| M1 | **Evaluation Strategy Canvas** | ✅ | `01-evaluation-strategy/strategy-canvas.md` |
+| M2 | **Failure audit log** | ✅ | `02-failure-discovery/audit-log.md` |
+| M2 | **Failure Taxonomy** | ✅ | `02-failure-discovery/failure-taxonomy.md` |
+| M3 | **Eval suite** (three checks and their results) | ✅ | `03-eval-suites/eval-suite.md` |
+| M3 | **Eval spec** (five parts and three team messages) | ✅ | `03-eval-suites/eval-spec.md` |
+| M4 | **Eval gate map** (severity × placement) | ✅ | `04-eval-gates/gate-map.md` |
+| M4 | **CI gate policy** (PR #218 replay) | ✅ | `04-eval-gates/lab-ci-gate-policy.md` |
+| M4 | **Launch strategy** (release criteria + CI policy + mitigation) | ✅ | `04-eval-gates/launch-strategy.md` |
+| M5 | **Coverage matrix** | ✅ | `05-scale/coverage-matrix.md` |
+| M5 | **Eval budget** | ✅ | `05-scale/eval-budget.md` |
+| M6 | **Ship-or-hold memo** | ✅ | `06-culture/ship-hold-memo.md` |
 
 ## The feature in one sentence
 
-_What LLM feature are you evaluating, who relies on it, and what is the cost of getting it wrong?_
+**Ascend IQ**, Ascend Analytics' customer-facing AI agent, answers plain-language market-intelligence questions for VP-level strategists at Fortune 500 companies who pay $50k+ a year for verified data; getting it wrong, such as quoting a stale price as current, puts false numbers into their budget and board decisions and puts Q4 renewals across the top 50 accounts at risk.
 
 ---
 
