@@ -1,23 +1,25 @@
 # Ship-or-Hold Memo · Ascend IQ
 
-Paste the markdown from the Module 6 Lab Guide over this file, or upload the downloaded `ship-hold-memo.md` in its place, then commit.
-
-> **Decision:** _SHIP or HOLD_
+> **Decision:** HOLD
 
 ## The Answer
 
-_Your call and the reason for it, in one sentence._
+I recommend we hold the Ascend IQ launch to our top 50 accounts, because stale pricing, our P0 failure, does not yet meet the release bar we set, and shipping now would knowingly put wrong prices in front of our largest clients.
 
 ## The Arguments
 
-### 1. _Main point_
+### 1. Hallucination, the failure type behind our P0, is too frequent to ship: wrong facts like stale prices would reach clients regularly, not rarely.
 
-_Evidence: the number from your repo that proves it._
+Evidence: Hallucinations, including the stale-pricing P0, appeared in 8 of 20 audited answers (HIGH frequency), against a release threshold of 100% of pricing answers passing.
 
-### 2. _Main point_
+### 2. We can reliably detect the P0 before it reaches a client, so the fix can be verified before we launch.
 
-_Evidence: the number from your repo that proves it._
+Evidence: The rule and safety checks caught the stale-pricing answer with zero false alarms across all 20 answers, and the judge caught 7 of 8 hallucinations.
+
+### 3. Our second-biggest risk has no check yet, so we can't yet say how often it would reach clients.
+
+Evidence: The agent refused answerable questions in 2 of 20 audited answers (P1); its pass rate with a check is not measured yet.
 
 ## Next Step · Decision Needed
 
-_What you need the CPO to approve, and by when._
+Approve the four-week hold by November 7, with engineering accountable for fixing pricing freshness and adding a robustness check by November 25, and authorize a staged rollout to 5 of the top 50 accounts on December 1 only if the Hard gate passes at 100%.
