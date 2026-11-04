@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ascend IQ: Hold Now, Ship Behind Gates, Final Project</title>
+<style>
+:root{
+  --bg:#0b1324;--panel:#111c33;--panel-2:#16233f;--line:#25365a;
+  --fg:#f4f7fc;--muted:#b7c3d9;--dim:#8d9bb8;
+  --accent:#7cb6ff;--hold:#ff6b5e;--hold-bg:rgba(255,107,94,.12);
+  --m1:#22d3ee;--m2:#60a5fa;--m3:#a78bfa;--m4:#f472b6;--m5:#fbbf24;--m6:#34d399;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h1,h2,h3{margin:0;line-height:1.15;letter-spacing:-.01em}
+
+/* Decision: first screen */
+.decision{padding:64px 0 56px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse 70% 80% at 0% 0%,rgba(255,107,94,.10),transparent 60%)}
+.decision h2{font-size:clamp(30px,4vw,44px);font-weight:800;margin-bottom:28px}
+.verdict{display:flex;gap:28px;align-items:stretch;background:var(--hold-bg);border:2px solid var(--hold);border-radius:18px;padding:28px 32px;margin-bottom:36px}
+.verdict-tag{flex:0 0 auto;align-self:center;font-size:clamp(40px,6vw,64px);font-weight:900;letter-spacing:.02em;color:var(--hold);line-height:1;padding-right:28px;border-right:2px solid rgba(255,107,94,.45)}
+.verdict p{margin:0;font-size:clamp(19px,2.1vw,24px);font-weight:600;line-height:1.45}
+.verdict-tag .lead{display:block;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.memo-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+.mod-num{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--col)}
+.mod-name{font-size:20px;font-weight:800}
+.label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 0 12px}
+.args{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.arg{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--m6);border-radius:14px;padding:20px 22px}
+.arg .point{margin:0 0 12px;font-weight:700;font-size:17px}
+.arg .ev{margin:0;color:var(--muted);font-size:15.5px}
+.next{background:var(--panel-2);border:1px solid var(--m6);border-radius:14px;padding:20px 24px}
+.next p{margin:0;font-size:17px;font-weight:600}
+
+/* Project intro */
+.intro{padding:56px 0;text-align:center;border-bottom:1px solid var(--line)}
+.badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);background:rgba(124,182,255,.10);border:1px solid rgba(124,182,255,.35);border-radius:999px;padding:6px 14px;margin-bottom:20px}
+.intro h1{font-size:clamp(34px,5.4vw,60px);font-weight:900;margin-bottom:18px}
+.pitch{font-size:clamp(17px,1.9vw,21px);color:var(--muted);max-width:820px;margin:0 auto 18px}
+.who{font-size:14px;color:var(--dim);margin:0 0 24px}
+.cta{display:inline-block;background:#2b54e8;color:#fff;text-decoration:none;padding:12px 26px;border-radius:999px;font-weight:800;font-size:15px}
+.cta:hover{background:#3d65f5}
+
+/* Evidence */
+section.block{padding:64px 0;border-bottom:1px solid var(--line)}
+section.block h2{font-size:clamp(28px,3.4vw,38px);font-weight:800;margin-bottom:10px}
+.lede{color:var(--muted);max-width:760px;margin:0 0 36px}
+.mod{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--col);border-radius:14px;padding:26px 30px;margin-bottom:20px}
+.mod .memo-head{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.row{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:12px 0}
+.row + .row{border-top:1px dashed var(--line)}
+.row .label{margin:4px 0 0;color:var(--col)}
+.row p{margin:0 0 10px;font-size:15.5px}
+.row p:last-child{margin-bottom:0}
+.row ul{margin:0;padding:0;list-style:none}
+.row li{padding:7px 0;font-size:15.5px;border-bottom:1px solid rgba(37,54,90,.6)}
+.row li:last-child{border-bottom:0}
+.row strong{color:var(--fg)}
+.tight li{padding:4px 0}
+
+/* Insights */
+.ins{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ins-card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--col);border-radius:14px;padding:22px 24px}
+.ins-card .label{color:var(--col)}
+.ins-card p{margin:0;font-size:16px;font-weight:500}
+
+footer{text-align:center;color:var(--dim);font-size:13px;padding:32px 20px}
+
+@media(max-width:900px){
+  .args,.ins{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:6px}
+}
+@media(max-width:600px){
+  .wrap{padding:0 16px}
+  .verdict{flex-direction:column;gap:14px;padding:22px}
+  .verdict-tag{border-right:0;padding-right:0;border-bottom:2px solid rgba(255,107,94,.45);padding-bottom:12px}
+  .mod{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<header class="decision">
+  <div class="wrap">
+    <div class="eyebrow">The decision</div>
+    <h2>Should Ascend IQ ship?</h2>
+    <div class="verdict">
+      <div class="verdict-tag"><span class="lead">Decision:</span>HOLD.</div>
+      <p>I recommend we hold the Ascend IQ launch to our top 50 accounts, because stale pricing, our P0 failure, does not yet meet the release bar we set, and shipping now would knowingly put wrong prices in front of our largest clients.</p>
+    </div>
+
+    <div class="memo-head" style="--col:var(--m6)"><span class="mod-num">Module 6</span><span class="mod-name">Ship-or-hold memo</span></div>
+    <div class="label">The arguments</div>
+    <div class="args">
+      <div class="arg">
+        <p class="point">1. Hallucination, the failure type behind our P0, is too frequent to ship: wrong facts like stale prices would reach clients regularly, not rarely.</p>
+        <p class="ev">Evidence: The only pricing question in our 20-answer audit returned a stale price (0 of 1 pricing answers passed, against a 100% release bar), and hallucinations overall hit 8 of 20 audited answers (HIGH frequency).</p>
+      </div>
+      <div class="arg">
+        <p class="point">2. We can reliably detect the P0 before it reaches a client, so the fix can be verified before we launch.</p>
+        <p class="ev">Evidence: The rule and safety checks caught the stale-pricing answer with zero false alarms across all 20 answers, and the judge caught 7 of 8 hallucinations.</p>
+      </div>
+      <div class="arg">
+        <p class="point">3. Our second-biggest risk has no check yet, so we can't yet say how often it would reach clients.</p>
+        <p class="ev">Evidence: The agent refused answerable questions in 2 of 20 audited answers (P1); its pass rate with a check is not measured yet.</p>
+      </div>
+    </div>
+    <div class="next">
+      <div class="label">Next step</div>
+      <p>Approve the four-week hold by November 7, with engineering accountable for fixing pricing freshness and adding a robustness check by November 25, and authorize a staged rollout to 5 of the top 50 accounts on December 1 only if the Hard gate passes at 100%.</p>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <span class="badge">AI Evals Certification &middot; Final Project</span>
+    <h1>Ascend IQ: Hold Now, Ship Behind Gates</h1>
+    <p class="pitch">HOLD: hallucinations hit 8 of 20 audited answers against a 100% pass bar for pricing, but our checks reliably catch the P0, so a four-week fix and a staged rollout to 5 accounts gets Ascend IQ to a safe launch on December 1.</p>
+    <p class="who">Varun Patel · ai-evals-oct19-Nov4 · 2026</p>
+    <a class="cta" href="https://github.com/varunpateltech/ai-evals" target="_blank" rel="noopener">View the repo &rarr;</a>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="eyebrow">The evidence</div>
+    <h2>Five modules of evidence</h2>
+    <p class="lede">Each lab committed one piece of evidence: what good looks like, where the product fails, the checks that catch it, the gates that block it, and the coverage and budget that keep it covered.</p>
+
+    <article class="mod" style="--col:var(--m1)">
+      <div class="memo-head"><span class="mod-num">Module 1</span><span class="mod-name">Evaluation strategy</span></div>
+      <div class="row"><div class="label">User promise</div><div><p>For VP-level strategists and product leaders at Fortune 500 companies, Ascend IQ promises to answer plain-language market questions in seconds with facts that match our verified sources, so that they can act on those answers in high-stakes decisions and keep renewing their $50k+ subscriptions.</p></div></div>
+      <div class="row"><div class="label">Three trust metrics</div><div>
+        <ul class="tight"><li>Latency</li><li>Hallucination Rate</li><li>Robustness</li></ul>
+        <p style="margin-top:10px">Why: They cover the three parts of the promise. Hallucination Rate covers verified, Robustness covers plain-language questions, and Latency covers in seconds. Fairness and UX Trust matter less for this launch, which is 50 accounts asking factual questions.</p>
+      </div></div>
+      <div class="row"><div class="label">Trade-offs</div><div><ul>
+        <li><strong>Hallucination Rate ↔ Latency:</strong> We prioritize Hallucination Rate over Latency because a slower verified answer costs a VP a few seconds, while a fast wrong one in a board deck can cost us a $50k account.</li>
+        <li><strong>Hallucination Rate ↔ Robustness:</strong> We prioritize Hallucination Rate over Robustness because saying “I can’t verify that” on an edge-case question is recoverable, while a confident fabrication is not. We’ll limit refusals to questions the data truly can’t answer.</li>
+      </ul></div></div>
+    </article>
+
+    <article class="mod" style="--col:var(--m2)">
+      <div class="memo-head"><span class="mod-num">Module 2</span><span class="mod-name">Failure taxonomy</span></div>
+      <div class="row"><div class="label">Top three failures</div><div><ul>
+        <li>1 · Stale pricing presented as current · #HALLUCINATION · 8/20, HIGH · P0</li>
+        <li>2 · Refuses questions the sources answer · #ROBUSTNESS · 2/20, LOW · P1</li>
+        <li>3 · Off-brand, slangy tone · #UX_TRUST · 1/20, LOW · P3</li>
+      </ul></div></div>
+      <div class="row"><div class="label">Why the top failure matters</div><div><p>This failure matters because Ascend IQ quoting outdated prices as current results in VPs making pricing and budget decisions on wrong numbers, breaking the "verified intelligence" they pay $50k+ a year for and putting Q4 renewals at risk.</p></div></div>
+    </article>
+
+    <article class="mod" style="--col:var(--m3)">
+      <div class="memo-head"><span class="mod-num">Module 3</span><span class="mod-name">Eval suite and spec</span></div>
+      <div class="row"><div class="label">What the checks caught</div><div>
+        <ul class="tight">
+          <li>Rule check · 1 of 1 · None · None · Caught it</li>
+          <li>Safety rule · 1 of 1 · None · None · Caught it</li>
+          <li>Judge · 1 of 1 · None · 5, 12 · Caught it</li>
+        </ul>
+        <p style="margin-top:12px"><strong>Where it was caught:</strong> The Win: all three checks caught my P0 (row 1), and the rule check and safety rule did it with zero false alarms, so stale pricing can be blocked by a cheap, deterministic rule. The Insight: across all 8 hallucination rows in my audit, the rules caught only 1 of 8, while the judge caught 7 of 8. Rows 3, 4, 6, 7, 11 and 14 had correct numbers but bent the meaning ("confirmed", "seamless", "HQ"), which only a judge can see. The judge's two "false alarms" (rows 5 and 12) are real errors my audit missed, and its one miss (row 20) is a call I already doubted in Module 2.</p>
+        <p><strong>What I'd ship next:</strong> Ship the pricing rule and safety rule as a hard gate on every answer, since they cost almost nothing and fully block my P0. Then run the judge on every factual answer before launch, because it is the only check that catches the other 6 of my 8 hallucination cases. Upstream, make retrieval prefer the newest source value over cached pages: that fixes stale pricing at the root instead of catching it afterwards.</p>
+      </div></div>
+      <div class="row"><div class="label">Eval spec</div><div><ul>
+        <li><strong>Target risk</strong> · Stale pricing presented as current (#HALLUCINATION, Hallucination Rate). Output-level: Ascend IQ quotes an outdated price as current when the source shows a newer one.</li>
+        <li><strong>Evaluator</strong> · The rule check (every number in the answer must match the reference and use the newest value) plus the safety rule (every pricing answer must give the newest price and say when it was last updated). Both run on every answer. The LLM judge runs on every release to catch meaning-level hallucinations the rules can't see.</li>
+        <li><strong>Threshold</strong> · 100% of pricing answers must pass both the rule check and the safety rule (zero stale prices). Any single failure blocks the answer from reaching the client. Based on: both rules caught the P0 (row 1) with zero false alarms across all 20 answers, so a 100% hard gate blocks the real failure without blocking correct answers.</li>
+        <li><strong>Business stakes</strong> · One wrong price in a VP's budget or board deck breaks the "verified intelligence" clients pay $50k+ a year for, risking churn across the top 50 accounts and Q4 renewals.</li>
+        <li><strong>Owner</strong> · Ascend IQ PM owns the threshold and the ship call. The ML engineering lead runs the checks in CI and production and reviews any blocked answers weekly.</li>
+      </ul></div></div>
+    </article>
+
+    <article class="mod" style="--col:var(--m4)">
+      <div class="memo-head"><span class="mod-num">Module 4</span><span class="mod-name">Eval gates</span></div>
+      <div class="row"><div class="label">Gate map</div><div>
+        <ul>
+          <li>1 · Hallucination · Hard · Pull Request · A wrong price in a VP's budget or board deck breaks the "verified intelligence" clients pay $50k+ for; my code-based pricing rule catches it cheaply on every change, so nothing ships until it passes.</li>
+          <li>14 · Relevance · No gate · The refusal is correct: safety guidelines require declining legal queries, so gating it would create legal compliance risk and block correct behavior; we fix the eval, not the product.</li>
+          <li>17 · Tone · Advisory · Pull Request · Off-brand slang hurts brand credibility with enterprise buyers, but it's a draft the VP reviews before sending, so a cheap PR slang check warns without blocking.</li>
+          <li>5 · Hallucination · Soft · Staging · Presenting a tentative speaker as confirmed damages client credibility and, if repeated, retention; the judge catches it in Staging and we ship behind a mitigation rather than block.</li>
+          <li>8 · Hallucination · Hard · Staging · A false, negative claim about a named competitor inverts the facts and creates legal and reputational exposure if a client repeats it, so this must be blocked before release.</li>
+          <li>3 · Latency · Soft · Staging · Correct answers at 4.2s vs a 2.0s target hurt adoption and push VPs back to the platform; Soft gate on p95 latency ≤ 2.0s across the 30-case golden set in Staging, shipped behind a staged rollout rather than blocking.</li>
+        </ul>
+        <p style="margin-top:12px"><strong>After the pushback:</strong> Changed: Row 17 moved to PR (cheap slang check, still Advisory); Row 3 rationale fixed with a measurable p95 ≤ 2.0s target on the 30-case golden set; Rows 5 and 14 rationales strengthened. Kept: Row 1 Hard at PR, because it's my P0 and the deterministic rule has zero false alarms; Row 8 Hard, because a false claim about a named competitor is legal exposure even once, so severity comes from business risk, not frequency.</p>
+      </div></div>
+      <div class="row"><div class="label">Release criteria</div><div>
+        <ul>
+          <li><strong>Hard</strong> · Stale pricing presented as current (#HALLUCINATION, Hallucination Rate). Output-level: Ascend IQ quotes an outdated price as current when the source shows a newer one. · Share of pricing answers that quote the newest source price and state when it was last updated · 100% of pricing answers must pass both the rule check and the safety rule (zero stale prices). Any single failure blocks the answer from reaching the client. · Code-based check · Pull Request</li>
+          <li><strong>Soft</strong> · Row 3 · Latency: exceeded the maximum response time · p95 response time on the golden set · p95 ≤ 2.0 seconds · Code-based check · Staging</li>
+          <li><strong>Advisory</strong> · Row 17 · Tone: slang detected · Share of drafted emails flagged for slang or off-brand words · ≤ 5% of drafts flagged (warn only, never blocks) · Code-based check · Pull Request</li>
+        </ul>
+        <p style="margin-top:12px"><strong>Plan if the soft gate fails:</strong> If our Soft gate fails (p95 latency above 2.0 seconds), I recommend a staged rollout: launch to 5 of the top 50 accounts first, measure p95 on real traffic for two weeks, and expand only once it holds at 2.0 seconds or below, rolling back if it rises above 3.0 seconds. This limits slow answers to a few accounts while engineering fixes speed, instead of delaying the launch for everyone.</p>
+      </div></div>
+    </article>
+
+    <article class="mod" style="--col:var(--m5)">
+      <div class="memo-head"><span class="mod-num">Module 5</span><span class="mod-name">Coverage and budget</span></div>
+      <div class="row"><div class="label">Coverage gaps</div><div>
+        <p>Competitor Signal Tracker · ❌ Gap · ❌ Gap · ✅ Covered · ✅ Covered · ❌ Gap</p>
+        <p><strong>Accepted gap:</strong> Fairness. It's an internal tool: the sales and strategy teams read every score before acting, and nothing goes to clients directly, so uneven quality across competitors is caught by human judgment and costs us less than unchecked hallucination does. We’ll look again: We run a baseline fairness review (comparing score quality across our top 10 competitors) before the tracker covers non-English sources or new regions, or within two weeks if sales reports that any competitor is consistently over- or under-scored. Otherwise we review it at the Q1 2027 eval budget planning.</p>
+        <p><strong>Gap to close first:</strong> We've flagged Hallucination Rate as the most critical gap for Competitor Signal Tracker because a made-up or misread competitor signal goes straight into sales pitches and strategy decisions with nothing checking it. The sales team would notice first, usually when a client or prospect corrects a claim we repeated, and the cost is lost deals, damaged credibility and strategy built on false signals. To close it, we'll add a new eval gate to the nightly run by November 30, 2026, owned by the Signal Tracker eng lead. On every signal, a rule check verifies that the source exists and that every quoted phrase and number actually appears in it, and holds back any failure from the sales feed. On a sample of 50 summaries a night, spread across competitors, sources and claim types, an LLM judge checks that the summary means what the source says; we first validate the judge against 100 human-labelled summaries. The PM pauses the feed if more than 5% of the week's ~350 judged summaries fail.</p>
+      </div></div>
+      <div class="row"><div class="label">Eval budget</div><div>
+        <ul class="tight">
+          <li>Data Fabrication · Hallucination Rate · P0 · Online eval · $85,000</li>
+          <li>Context Specificity · Robustness · P1 · Periodic audit · $7,000</li>
+          <li>Overconfident Tone · UX Trust · P1 · Online eval · $65,000</li>
+          <li>Data Bias · Fairness · P2 · Periodic audit · $5,500</li>
+          <li>Slow Answers · Latency · P3 · Online eval · $25,000</li>
+        </ul>
+        <p style="margin-top:12px"><strong>Periodic audit · Context Specificity (Robustness · P1):</strong> On every answer, an automated check compares the filters in the question (region, date range, sentiment, source) with the filters actually applied in retrieval and blocks any answer that dropped one. Each week, a reviewer also samples 50 multi-part and filtered answers to catch subtler misses the automated check can't see., enough because The automated filter check catches the dangerous case, an answer that quietly ignored "APAC" or "last 30 days", on every answer, not just in a sample; the weekly audit catches partial misses in meaning. What it misses is an answer that applied the right filters but still focused on the wrong part of the question, and we accept that until the audit shows it recurring, at which point we buy this an online eval next quarter.</p>
+        <p><strong>Periodic audit · Data Bias (Fairness · P2):</strong> Each week, a reviewer samples 50 answers per region (US, EMEA, APAC) and scores coverage, data quality and sentiment-scoring consistency against the sources, comparing each region's scores with the US baseline., enough because Bias is a pattern that shows up across many answers, which a per-region weekly sample is built to measure. It misses single skewed answers between audits; we move it to an online eval if any region's quality score falls more than 10 points below the US baseline in two consecutive audits.</p>
+      </div></div>
+    </article>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="eyebrow">Insights</div>
+    <h2>What I learned</h2>
+    <p class="lede">Where the course was hardest, what you’ll keep doing, and the moment your thinking changed.</p>
+    <div class="ins">
+      <div class="ins-card" style="--col:var(--m1)"><div class="label">Friction</div><p>Trusting the tools. My first eval run came back inverted because my rule check's pass and fail conditions said the same thing, and an AI "CPO review" of my budget recommended a swap that broke the $200K cap because it priced an online eval at $25K instead of $70K. I learned to check every number an LLM gives me, and to write checks so two people would score them the same way.</p></div>
+      <div class="ins-card" style="--col:var(--m3)"><div class="label">Key learnings</div><p>Start from real failures, not generic metrics. Use cheap deterministic rules for what you can define exactly and an LLM judge only for meaning. Set thresholds from measured catch and false-alarm counts. Gate each dimension on its own instead of one blended score. Pick a gate from business risk, not from the failure label. And accept a gap only with a named kill criterion.</p></div>
+      <div class="ins-card" style="--col:var(--m5)"><div class="label">Aha moment</div><p>When my judge's two "false alarms" turned out to be real errors my own audit had missed. I had treated my human labels as ground truth, but neither the human nor the judge is ground truth on its own: you compare them and investigate where they disagree.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>Varun Patel · ai-evals-oct19-Nov4 · 2026 &middot; AI Evals Certification &middot; Final Project</footer>
+
+</body>
+</html>
